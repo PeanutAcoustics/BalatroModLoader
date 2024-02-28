@@ -32,8 +32,8 @@ jobs:
         with:
           name: Steamodded-${{github.run_id}}
           path: |
-            "install.sh"
-            "install.bat"
+            "./install.sh"
+            "./install.bat"
 
       - name: Upload Artifact to Release
         uses: softprops/action-gh-release@master
@@ -43,5 +43,5 @@ jobs:
           name: Steamodded-${{github.run_id}}
           token: ${{secrets.GITHUB_TOKEN}}
           files: |
-            "install.sh"
-            "install.bat"
+            "./install.sh"
+            "./install.bat"
