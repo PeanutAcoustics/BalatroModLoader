@@ -7,8 +7,12 @@ mkdir "!temp_dir_git!"
 set "temp_dir=%TEMP%\%RANDOM%"
 mkdir "!temp_dir!"
 
-:: Clone the Git repository
-"!temp_dir_git!\windows_deps\git\git.exe" clone https://github.com/NanashiTheNameless/BalatroModLoader.git "!temp_dir_git!"
+:: Download latest repo version and extract
+powershell -Command "Invoke-WebRequest -Uri 'https://github.com/NanashiTheNameless/BalatroModLoader/archive/refs/heads/main.zip' -OutFile '!temp_dir_git!\BalatroModLoader.zip'"
+powershell -NoProfile -Command "& {Expand-Archive -Path '!temp_dir_git!\BalatroModLoader.zip' -DestinationPath '!temp_dir_git!' -Force}"
+
+:: Fix Directory
+move "!temp_dir_git!\BalatroModLoader-main" "!temp_dir_git!"
 
 :: Locate the Balatro directory
 for /f "delims=" %%i in ('dir /b /s "common\Balatro\Balatro.exe"') do set "balatro_path=%%i"
