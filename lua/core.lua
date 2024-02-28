@@ -558,7 +558,7 @@ function create_UIBox_mods_button()
 end
 
 function G.FUNCS.steamodded_github(arg_736_0)
-	love.system.openURL("https://github.com/Steamopollys/Steamodded")
+	love.system.openURL("https://github.com/NanashiTheNameless/BalatroModLoader")
 end
 
 function G.FUNCS.mods_button(arg_736_0)

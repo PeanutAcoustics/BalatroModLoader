@@ -32,8 +32,8 @@ jobs:
         with:
           name: BalatroModLoader-${{github.run_id}}
           path: |
-            install.sh
-            install.bat
+            BalatroModLoader.sh
+            BalatroModLoader.bat
 
       - name: Upload Artifact to Release
         uses: softprops/action-gh-release@master
@@ -43,5 +43,5 @@ jobs:
           name: BalatroModLoader-${{github.run_id}}
           token: ${{secrets.GITHUB_TOKEN}}
           files: |
-            install.sh
-            install.bat
+            BalatroModLoader.sh
+            BalatroModLoader.bat
