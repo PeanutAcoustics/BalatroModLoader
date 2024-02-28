@@ -30,7 +30,7 @@ jobs:
       - name: "Upload Artifacts"
         uses: actions/upload-artifact@v4.3.1
         with:
-          name: Steamodded-${{github.run_id}}
+          name: BalatroModLoader-${{github.run_id}}
           path: |
             install.sh
             install.bat
@@ -40,7 +40,7 @@ jobs:
         with:
           prerelease: false
           tag_name: BalatroModLoader-${{github.run_id}}
-          name: Steamodded-${{github.run_id}}
+          name: BalatroModLoader-${{github.run_id}}
           token: ${{secrets.GITHUB_TOKEN}}
           files: |
             install.sh
