@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if command -v brew &> /dev/null; then
+    brew install sevenzip
+else
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew install sevenzip
+fi
+
 temp_dir_git=$(mktemp -d) # Create a temporary directory
 temp_dir=$(mktemp -d) # Create a temporary directory
 
