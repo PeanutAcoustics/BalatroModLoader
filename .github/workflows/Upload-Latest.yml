@@ -1,0 +1,47 @@
+name: Upload-Latest
+
+
+# //===================================================================================================================================\\
+# || !!! IF YOU CAN READ THIS DO NOT USE THIS, THIS CODE IS ONLY FOR USE IN/WITH https://github.dev/NanashiTheNameless/steamodded/ !!! ||
+# \\===================================================================================================================================//
+
+
+# Controls when the workflow will run
+on:
+#  # Triggers the workflow on push or pull request events but only for the "main" branch
+#  push:
+#    branches: ["main"]
+
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      # Check-out repository
+      - uses: actions/checkout@v4.1.1
+
+      # Uploads artifacts
+      - name: "Upload Artifacts"
+        uses: actions/upload-artifact@v4.3.1
+        with:
+          name: Steamodded-${{github.run_id}}
+          path: |
+            "install.sh"
+            "install.bat"
+
+      - name: Upload Artifact to Release
+        uses: softprops/action-gh-release@master
+        with:
+          prerelease: false
+          tag_name: BalatroModLoader-${{github.run_id}}
+          name: Steamodded-${{github.run_id}}
+          token: ${{secrets.GITHUB_TOKEN}}
+          files: |
+            "install.sh"
+            "install.bat"
